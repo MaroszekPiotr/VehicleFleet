@@ -1,4 +1,5 @@
 ﻿using System;
+using DriverLibrary;
 
 namespace Main
 {
@@ -6,7 +7,7 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Driver piotr = new Driver("84041004557", "Piotr", "Maroszek"); 
         }
     }
 }
