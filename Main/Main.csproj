@@ -6,8 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CarLibrary\VehicleLibrary.csproj" />
+    <ProjectReference Include="..\CarLibrary\VehicleLibrary1.csproj" />
     <ProjectReference Include="..\DriverLibrary\DriverLibrary.csproj" />
+    <ProjectReference Include="..\VehicleLibrary\VehicleLibrary.csproj" />
   </ItemGroup>
 
 </Project>

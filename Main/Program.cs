@@ -7,7 +7,8 @@ namespace Main
     {
         static void Main(string[] args)
         {
-            Driver piotr = new Driver("84041004557", "Piotr", "Maroszek"); 
+            Driver piotr = new Driver("84041004557", "Piotr", "Maroszek");
+            Console.WriteLine(ushort.MaxValue);
         }
     }
 }

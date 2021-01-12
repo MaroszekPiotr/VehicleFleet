@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using DriverLibrary;
 
-namespace CarLibrary
+namespace VehicleLibrary
 {
     public class Vehicle
     {
@@ -11,9 +11,10 @@ namespace CarLibrary
         private VehicleType vehicleType;
         private DriverLicense requiredDriverLicese;
         private DateTime purchaseDate;
-        private int initialKilometersValue;
+        private uint initialKilometersValue;
         private DateTime registrationDate;
         private DateTime salesDate;
-        private int endKilometersValue;
+        private uint endKilometersValue;
+        public string AdditionalInformation { get; private set; }
     }
 }
