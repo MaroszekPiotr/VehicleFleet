@@ -14,7 +14,7 @@ namespace VFLibrary
         public string Name { get; set; }
         public string Surname { get; set; }
         public string AdditionalId { get; set; }
-        public Driver(string pesel, string name, string surname, string nationalityCode = "PL")
+        public Driver(string name, string surname, string pesel ="", string nationalityCode = "PL")
         {
             this.Name = name;
             this.Surname = surname;
