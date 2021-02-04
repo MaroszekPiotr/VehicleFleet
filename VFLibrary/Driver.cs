@@ -8,6 +8,7 @@ namespace VFLibrary
 {
     public class Driver
     {
+        public uint Id { get; set; }
         private string pesel;
         private List<DriverLicense> driverLicense;
         public string Name { get; set; }

@@ -8,6 +8,7 @@ namespace VFLibrary
 {
     public class DriverLicense
     {
+        public int Id { get; set; }
         private LicenseCategory licenseCategory;
         public DateTime licenseValidFrom { get; private set; }
         public DateTime licenseValidTo { get; private set; }
