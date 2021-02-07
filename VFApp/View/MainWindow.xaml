@@ -4,13 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VFApp.View"
-        xmlns:vm="clr-namespace:VFViewModel;assembly=VFViewModel"
         mc:Ignorable="d"
         Title="VehicleFleet" Height="450" Width="800">
     <Window.Resources>
-        <vm:VehicleFleetVM x:Key="vm"/>
     </Window.Resources>
-    <DockPanel DataContext="{StaticResource vm}">
+    <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
                 <MenuItem Header="New "/>

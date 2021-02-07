@@ -14,19 +14,28 @@
         <StackPanel Margin="10">
             <TextBlock Text="VIN:"
                        Margin="0,0,0,10"/>
-            <TextBox Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Vin, Mode=TwoWay}"  
+                     Margin="0,0,0,10"/>
             <TextBlock Text="Vehicle Plate:"
                        Margin="0,0,0,10"/>
-            <TextBox Margin="0,0,0,10"/>
+            <TextBox Text="{Binding VehiclePlate, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+            <TextBlock Text="Vehicle Description:"
+                       Margin="0,0,0,10"/>
+            <TextBox Text="{Binding VehicleDescription, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
             <TextBlock Text="Purchase Date:"
                        Margin="0,0,0,10"/>
-            <TextBox Margin="0,0,0,10"/>
+            <TextBox Text="{Binding purchaseDate, Mode=TwoWay}"
+                     Margin="0,0,0,10"/>
             <TextBlock Text="Initial Kilometers Value:"
                        Margin="0,0,0,10"/>
-            <TextBox Margin="0,0,0,10"/>
+            <TextBox Text="{Binding InitialKilometersValue, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
             <TextBlock Text="Driver:"
                        Margin="0,0,0,10"/>
-            <TextBox Margin="0,0,0,10"/>
+            <TextBox Text="{Binding DriverID, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
             <Button Content="Save"
                     Click="SaveNewVehicleClick"/>
             <Button Content="Cancel"

@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -44,10 +44,11 @@ namespace VFViewModel
             DatabaseHelper.Insert(newDriver);
         }
 
-        public void CreateVehicle()
+        *//*public void CreateVehicle()
         {
             Vehicle newVehicle = new Vehicle();
             DatabaseHelper.Insert(newVehicle);
-        }
+        }*//*
     }
 }
+*/

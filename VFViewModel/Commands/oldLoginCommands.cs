@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +7,12 @@ using System.Windows.Input;
 
 namespace VFViewModel.Commands
 {
-    public class NewDriverCommand : ICommand
+    public class LoginCommands : ICommand
     {
-        public VehicleFleetVM Vm { get; set; }
-
+        public LoginVM Vm { get; set; }
         public event EventHandler CanExecuteChanged;
-        public NewDriverCommand(VehicleFleetVM vm)
+
+        public LoginCommands(LoginVM vm)
         {
             Vm = vm;
         }
@@ -24,7 +24,8 @@ namespace VFViewModel.Commands
 
         public void Execute(object parameter)
         {
-            Vm.CreateDriver();
+            //todo
         }
     }
 }
+*/
