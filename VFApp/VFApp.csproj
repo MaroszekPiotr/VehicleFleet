@@ -10,4 +10,8 @@
     <ProjectReference Include="..\VFViewModel\VFViewModel.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\Drivers\" />
+  </ItemGroup>
+
 </Project>
