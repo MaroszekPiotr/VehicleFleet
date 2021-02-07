@@ -7,12 +7,12 @@ using System.Windows.Input;
 
 namespace VFViewModel.Commands
 {
-    public class NewVehicleCommand : ICommand
+    public class oldNewVehicleCommand : ICommand
     {
         public VehicleFleetVM Vm { get; set; }
 
         public event EventHandler CanExecuteChanged;
-        public NewVehicleCommand(VehicleFleetVM vm)
+        public oldNewVehicleCommand(VehicleFleetVM vm)
         {
             Vm = vm;
         }

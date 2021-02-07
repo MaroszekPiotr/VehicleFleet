@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace VFLibrary
 {
+    [Table("Vehicles")]
     public class Vehicle
     {
         [PrimaryKey]

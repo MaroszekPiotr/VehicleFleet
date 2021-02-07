@@ -11,29 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using VFApp.View.Vehicles;
 
-namespace VFApp.View
+namespace VFApp.View.Vehicles
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for VehicleWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class VehicleWindow : Window
     {
-        public MainWindow()
+        public VehicleWindow()
         {
             InitializeComponent();
         }
 
-        private void MenuFileExit_Click(object sender, RoutedEventArgs e)
+        private void AddNewVehicleClick(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
-        }
-
-        private void OpenVehicleWindow(object sender, RoutedEventArgs e)
-        {
-            VehicleWindow vehicleWindow = new VehicleWindow();
-            vehicleWindow.ShowDialog();
+            NewVehicleWindow newVehicleWindow = new NewVehicleWindow();
+            newVehicleWindow.ShowDialog();
         }
     }
 }

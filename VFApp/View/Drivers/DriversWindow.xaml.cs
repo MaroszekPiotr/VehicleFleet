@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace VFApp.View.Vehicles
+namespace VFApp.View.Drivers
 {
     /// <summary>
-    /// Interaction logic for NewDriverWindow.xaml
+    /// Interaction logic for DriversWindow.xaml
     /// </summary>
-    public partial class NewDriverWindow : Window
+    public partial class DriversWindow : Window
     {
-        public NewDriverWindow()
+        public DriversWindow()
         {
             InitializeComponent();
         }

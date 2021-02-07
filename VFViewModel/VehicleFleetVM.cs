@@ -31,11 +31,11 @@ namespace VFViewModel
             set { selectedVehicle = value; }
         }
         public NewDriverCommand NewDriverCommand { get; set; }
-        public NewVehicleCommand NewVehicleCommand { get; set; }
+        public oldNewVehicleCommand NewVehicleCommand { get; set; }
         public VehicleFleetVM()
         {
             NewDriverCommand = new NewDriverCommand(this);
-            NewVehicleCommand = new NewVehicleCommand(this);
+            NewVehicleCommand = new oldNewVehicleCommand(this);
         }
 
         public void CreateDriver()

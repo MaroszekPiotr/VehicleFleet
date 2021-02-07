@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "Main\Main.csproj", "{092F184A-E21C-4225-9358-718CBCB86967}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{F8EBA012-436F-4F56-A3E8-34D31A918C8F}"
 	ProjectSection(SolutionItems) = preProject
 		VehicleFleet.db = VehicleFleet.db
@@ -12,9 +10,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{F8
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VFLibrary", "VFLibrary\VFLibrary.csproj", "{21CFAC5E-B046-4DF8-861C-A6D1994E7807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VFApp", "VFApp\VFApp.csproj", "{507FA2B9-6E51-4058-B5A5-299CADE5DA66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VFApp", "VFApp\VFApp.csproj", "{507FA2B9-6E51-4058-B5A5-299CADE5DA66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VFViewModel", "VFViewModel\VFViewModel.csproj", "{7AB10C4D-A4FB-45AF-B2E4-74E60C6C35E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VFViewModel", "VFViewModel\VFViewModel.csproj", "{7AB10C4D-A4FB-45AF-B2E4-74E60C6C35E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,10 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{092F184A-E21C-4225-9358-718CBCB86967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{092F184A-E21C-4225-9358-718CBCB86967}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{092F184A-E21C-4225-9358-718CBCB86967}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{092F184A-E21C-4225-9358-718CBCB86967}.Release|Any CPU.Build.0 = Release|Any CPU
 		{21CFAC5E-B046-4DF8-861C-A6D1994E7807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{21CFAC5E-B046-4DF8-861C-A6D1994E7807}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21CFAC5E-B046-4DF8-861C-A6D1994E7807}.Release|Any CPU.ActiveCfg = Release|Any CPU

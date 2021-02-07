@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace VFLibrary
 {
+    [Table("Drivers")]
     public class Driver
     {
+        [PrimaryKey,AutoIncrement]
         public uint Id { get; set; }
         private string pesel;
         private List<DriverLicense> driverLicense;
