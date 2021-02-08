@@ -37,9 +37,10 @@
             <TextBox Text="{Binding DriverID, Mode=TwoWay}" 
                      Margin="0,0,0,10"/>
             <Button Content="Save"
-                    Click="SaveNewVehicleClick"/>
+                    Command="{Binding NewVehicleCommand}"
+                    Click="CloseWindowClick"/>
             <Button Content="Cancel"
-                    Click="CancelNewVehicleClick"/>
+                    Click="CloseWindowClick"/>
         </StackPanel>
         
     </Grid>

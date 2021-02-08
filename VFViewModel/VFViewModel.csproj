@@ -12,9 +12,4 @@
     <ProjectReference Include="..\VFLibrary\VFLibrary.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Commands\DriverCommands\" />
-    <Folder Include="Drivers\" />
-  </ItemGroup>
-
 </Project>

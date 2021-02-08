@@ -11,7 +11,7 @@ namespace VFLibrary
     public class Vehicle
     {
         [PrimaryKey]
-        public string Vin { get; private set; }
+        public string Vin { get; set; }
         public string VehiclePlate { get; set; }
         public string VehicleDescription { get; set; }
         public DateTime purchaseDate{ get; private set; }

@@ -9,7 +9,8 @@
     <DockPanel>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Content="Add Driver"/>
+                <Button Content="Add Driver"
+                        Click="AddNewDriverClick"/>
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"

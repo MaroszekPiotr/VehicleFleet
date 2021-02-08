@@ -1,18 +1,18 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using VFViewModel.Drivers;
 
-namespace VFViewModel.Commands
+namespace VFViewModel.Commands.DriverCommands
 {
     public class NewDriverCommand : ICommand
     {
-        public VehicleFleetVM Vm { get; set; }
-
+        public NewDriverVM Vm { get; set; }
         public event EventHandler CanExecuteChanged;
-        public NewDriverCommand(VehicleFleetVM vm)
+        public NewDriverCommand(NewDriverVM vm)
         {
             Vm = vm;
         }
@@ -24,8 +24,7 @@ namespace VFViewModel.Commands
 
         public void Execute(object parameter)
         {
-            Vm.CreateDriver();
+            Vm.CreateNewDriver();
         }
     }
 }
-*/

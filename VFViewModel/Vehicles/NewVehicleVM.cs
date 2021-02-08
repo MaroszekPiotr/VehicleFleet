@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using VFLibrary;
 using VFViewModel.Commands.VehicleCommands;
+using VFViewModel.Helpers;
 
 namespace VFViewModel.Vehicles
 {
@@ -17,15 +18,16 @@ namespace VFViewModel.Vehicles
         public DateTime purchaseDate { get;  set; }
         public int InitialKilometersValue { get; set; }
         public int DriverID { get; set; }
-        public NewVehicleCommand newVehicleCommand;
+        public NewVehicleCommand NewVehicleCommand { get; set; }
         public NewVehicleVM()
         {
-            newVehicleCommand = new NewVehicleCommand(this);
+            NewVehicleCommand = new NewVehicleCommand(this);
         }
 
         public void CreateNewVehicle()
         {
             Vehicle vehicle = new Vehicle(Vin);
+            DatabaseHelper.Insert<Vehicle>(vehicle);
         }
     }
 }

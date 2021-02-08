@@ -21,12 +21,12 @@ namespace VFViewModel.Vehicles
             get => selectedVehicle;
             set { selectedVehicle = value; }
         }
-        //public NewVehicleCommand NewVehicleCommand { get; set; }
 
         public VehiclesVM()
         {
             Vehicles = new ObservableCollection<Vehicle>();
-            //NewVehicleCommand = new NewVehicleCommand(this);
+            
+            GetVehicleList();
         }
 
         public void CreateNewVehicle()

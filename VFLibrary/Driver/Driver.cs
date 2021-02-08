@@ -21,7 +21,7 @@ namespace VFLibrary
         {
             this.Name = name;
             this.Surname = surname;
-            this.pesel = peselValidator(pesel);
+            //this.pesel = peselValidator(pesel);
 
             string peselValidator(string peselToCheck)
             {

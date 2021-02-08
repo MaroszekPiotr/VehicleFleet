@@ -1,20 +1,15 @@
-﻿/*using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace VFViewModel.Commands
+namespace VFViewModel.Commands.DriverCommands
 {
-    public class RegisterCommand : ICommand
+    public class SaveNewDriverCommand : ICommand
     {
-        public LoginVM Vm { get; set; }
         public event EventHandler CanExecuteChanged;
-        public RegisterCommand(LoginVM vm)
-        {
-            Vm = vm;
-        }
 
         public bool CanExecute(object parameter)
         {
@@ -23,8 +18,7 @@ namespace VFViewModel.Commands
 
         public void Execute(object parameter)
         {
-            //todo
+            throw new NotImplementedException();
         }
     }
 }
-*/

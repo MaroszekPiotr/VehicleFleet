@@ -23,5 +23,10 @@ namespace VFApp.View.Drivers
         {
             InitializeComponent();
         }
+
+        private void CloseWindowClick(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

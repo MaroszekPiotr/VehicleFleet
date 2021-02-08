@@ -14,7 +14,12 @@
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Content="Add Vehicle"
+                        Margin="10,0,10,0"
                         Click="AddNewVehicleClick"/>
+                <Button Content="Add Event"
+                        Margin="10,0,10,0"/>
+                <Button Content="Add Calendar Event"
+                        Margin="10,0,10,0"/>
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"

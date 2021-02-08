@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VFApp.View.Drivers;
 using VFApp.View.Vehicles;
 
 namespace VFApp.View
@@ -30,10 +31,16 @@ namespace VFApp.View
             Application.Current.Shutdown();
         }
 
-        private void OpenVehicleWindow(object sender, RoutedEventArgs e)
+        private void OpenVehicleWindowClick(object sender, RoutedEventArgs e)
         {
             VehicleWindow vehicleWindow = new VehicleWindow();
             vehicleWindow.ShowDialog();
+        }
+
+        private void OpenDriverWindowClick(object sender, RoutedEventArgs e)
+        {
+            DriversWindow driversWindow = new DriversWindow();
+            driversWindow.ShowDialog();
         }
     }
 }

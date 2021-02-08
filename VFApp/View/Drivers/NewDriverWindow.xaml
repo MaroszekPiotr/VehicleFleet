@@ -3,10 +3,40 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:VFViewModel.Drivers;assembly=VFViewModel"
         xmlns:local="clr-namespace:VFApp.View.Drivers"
         mc:Ignorable="d"
         Title="NewDriverWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Window.Resources>
+        <vm:NewDriverVM x:Key="vmNewDriver"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource vmNewDriver}">
+        <StackPanel Margin="10">
+            <TextBlock Text="First Name:"
+                       Margin="0,0,0,10"/>
+            <TextBox Text="{Binding FirstName, Mode=TwoWay}"  
+                     Margin="0,0,0,10"/>
+            <TextBlock Text="Last Name:"
+                       Margin="0,0,0,10"/>
+            <TextBox Text="{Binding LastName, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+            <TextBlock Text="Nationality:"
+                       Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Nationality, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+            <TextBlock Text="PESEL:"
+                       Margin="0,0,0,10"/>
+            <TextBox Text="{Binding Pesel, Mode=TwoWay}"
+                     Margin="0,0,0,10"/>
+            <TextBlock Text="Additional ID:"
+                       Margin="0,0,0,10"/>
+            <TextBox Text="{Binding AdditionalId, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+            <Button Content="Save"
+                    Command="{Binding NewDriverCommand}"
+                    Click="CloseWindowClick"/>
+            <Button Content="Cancel"
+                    Click="CloseWindowClick"/>
+        </StackPanel>
     </Grid>
 </Window>

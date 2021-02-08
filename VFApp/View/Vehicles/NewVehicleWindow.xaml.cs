@@ -24,14 +24,9 @@ namespace VFApp.View.Vehicles
             InitializeComponent();
         }
 
-        private void SaveNewVehicleClick(object sender, RoutedEventArgs e)
+        private void CloseWindowClick(object sender, RoutedEventArgs e)
         {
             //save action
-            this.Close();
-        }
-
-        private void CancelNewVehicleClick(object sender, RoutedEventArgs e)
-        {
             this.Close();
         }
     }
