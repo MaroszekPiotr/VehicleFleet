@@ -26,7 +26,10 @@ namespace VFViewModel.Vehicles
 
         public void CreateNewVehicle()
         {
-            Vehicle vehicle = new Vehicle(Vin);
+            Vehicle vehicle = new Vehicle()
+            {
+                Vin = Vin,
+            };
             DatabaseHelper.Insert<Vehicle>(vehicle);
         }
     }

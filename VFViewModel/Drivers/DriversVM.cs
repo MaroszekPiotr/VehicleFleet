@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using VFLibrary;
 using VFViewModel.Commands.DriverCommands;
+using VFViewModel.Helpers;
+
 namespace VFViewModel.Drivers
 {
     public class DriversVM : INotifyPropertyChanged
@@ -26,14 +28,14 @@ namespace VFViewModel.Drivers
             GetDriversList();
         }
 
-        public void CreateNewDriver()
+        private void GetDriversList()
         {
-            
-        }
-
-        public void GetDriversList()
-        {
-
+            var drivers = DatabaseHelper.Read<Driver>();
+            Drivers.Clear();
+            foreach(var driver in drivers)
+            {
+                Drivers.Add(driver);
+            }
         }
 
     }

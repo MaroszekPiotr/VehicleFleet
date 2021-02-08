@@ -23,7 +23,9 @@
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"
-                  Width="200">
+                  Width="200"
+                  ItemsSource="{Binding Vehicles}"
+                  SelectedItem="{Binding SelectedVehicle}">
             
         </ListView>
         <Grid>

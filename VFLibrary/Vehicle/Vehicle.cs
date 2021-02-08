@@ -22,9 +22,8 @@ namespace VFLibrary
         [Indexed]
         public int DriverID { get; set; }
 
-        public Vehicle(string vin)
+        public Vehicle()
         {
-            Vin = vin;
         }
     }
 }

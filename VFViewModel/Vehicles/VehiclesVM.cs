@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using VFLibrary;
 using VFViewModel.Commands;
 using VFViewModel.Commands.VehicleCommands;
+using VFViewModel.Helpers;
 
 namespace VFViewModel.Vehicles
 {
     public class VehiclesVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        ObservableCollection<Vehicle> Vehicles { get; set; }
+        public ObservableCollection<Vehicle> Vehicles { get; set; }
         private Vehicle selectedVehicle;
         public Vehicle SelectedVehicle
         {
@@ -29,11 +30,20 @@ namespace VFViewModel.Vehicles
             GetVehicleList();
         }
 
-        public void CreateNewVehicle()
+
+        private void GetVehicleList()
         {
+            var vehicles = DatabaseHelper.Read<Vehicle>();
+
+            if (vehicles != null)
+            {
+                Vehicles.Clear();
+                foreach (var vehicle in vehicles)
+                {
+                    Vehicles.Add(vehicle);
+                }
+            }
 
         }
-
-        public void GetVehicleList() { }
     }
 }

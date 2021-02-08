@@ -25,7 +25,7 @@ namespace VFViewModel.Drivers
 
         public void CreateNewDriver()
         {
-            Driver driver = new Driver(FirstName,LastName);
+            Driver driver = new Driver();
             DatabaseHelper.Insert<Driver>(driver);
         }
     }

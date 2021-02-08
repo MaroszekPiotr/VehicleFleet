@@ -3,12 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace VFViewModel.Helpers
 {
     public class DatabaseHelper
     {
-        private static string vehilcleFleetDb = Path.Combine(Environment.CurrentDirectory, "vehicleFleetDb.db3");
+        
+        private static string vehilcleFleetDb = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "vehicleFleetDb.db3");
         public static bool Insert<T>(T item)
         {
             bool result = false;

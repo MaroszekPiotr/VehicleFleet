@@ -17,13 +17,13 @@ namespace VFLibrary
         public string Name { get; set; }
         public string Surname { get; set; }
         public string AdditionalId { get; set; }
-        public Driver(string name, string surname, string pesel ="", string nationalityCode = "PL")
+        public Driver()
         {
-            this.Name = name;
-            this.Surname = surname;
+            //this.Name = name;
+            //this.Surname = surname;
             //this.pesel = peselValidator(pesel);
 
-            string peselValidator(string peselToCheck)
+            /*string peselValidator(string peselToCheck)
             {
                 switch (nationalityCode.ToLower())
                 {
@@ -43,7 +43,7 @@ namespace VFLibrary
                         if (peselToCheck.Length != 0) throw new ArgumentException("foreigners do not have a PESEL number!");
                         return "";
                 }
-            }
+            }*/
         }
     }
 }
