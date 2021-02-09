@@ -21,11 +21,23 @@
         <ListView DockPanel.Dock="Left"
                   Width="200"
                   ItemsSource="{Binding Vehicles}"
-                  SelectedValue="{Binding SelectedVehicle, Mode=TwoWay}">
+                  SelectedValue="{Binding SelectedVehicle, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding VehicleDescription}"/>
+                        <TextBlock Text="{Binding VehiclePlate}"/>
+                        <TextBlock Text="{Binding Vin}"/>
+                        
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             
         </ListView>
         <Grid>
-            
+            <StackPanel>
+                
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>

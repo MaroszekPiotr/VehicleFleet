@@ -40,6 +40,9 @@
                 <Button Content="Vehicles Library"
                         Margin="20, 0 ,20,0"
                         Click="OpenVehicleWindowClick"/>
+                <Button Content="Exit"
+                        Margin="20, 0 ,20,0"
+                        Click="MenuFileExit_Click"/>
             </ToolBar>
         </ToolBarTray>
         <Grid>
