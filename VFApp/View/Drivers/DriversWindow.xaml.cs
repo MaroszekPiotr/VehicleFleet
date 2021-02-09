@@ -24,10 +24,9 @@ namespace VFApp.View.Drivers
             InitializeComponent();
         }
 
-        private void AddNewDriverClick(object sender, RoutedEventArgs e)
+        private void ExitClick(object sender, RoutedEventArgs e)
         {
-            NewDriverWindow newDriverWindow = new NewDriverWindow();
-            newDriverWindow.ShowDialog();
+            this.Close();
         }
     }
 }

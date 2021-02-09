@@ -25,10 +25,19 @@
         </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Content="Drivers"
+                <Button Content="Add Calendar Event"
+                        Margin="20, 0 ,20,0"
+                        Click="AddCalendarEventClick"/>
+                <Button Content="Add Driver"
+                        Margin="20, 0 ,20,0"
+                        Click="AddDriverClick"/>
+                <Button Content="Add Vehicle"
+                        Margin="20, 0 ,20,0"
+                        Click="AddVehicleClick"/>
+                <Button Content="Drivers Library"
                         Margin="20, 0 ,20,0"
                         Click="OpenDriverWindowClick"/>
-                <Button Content="Vehicles"
+                <Button Content="Vehicles Library"
                         Margin="20, 0 ,20,0"
                         Click="OpenVehicleWindowClick"/>
             </ToolBar>

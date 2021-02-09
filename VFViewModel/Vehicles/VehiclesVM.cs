@@ -15,6 +15,7 @@ namespace VFViewModel.Vehicles
     public class VehiclesVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public VehiclesRefreshListCommand VehiclesRefreshListCommand { get; set; }
         private ObservableCollection<Vehicle> vehicles;
 
         public ObservableCollection<Vehicle> Vehicles
@@ -37,13 +38,14 @@ namespace VFViewModel.Vehicles
         public VehiclesVM()
         {
             Vehicles = new ObservableCollection<Vehicle>();
+            VehiclesRefreshListCommand = new VehiclesRefreshListCommand(this);
             OnPropertyChanged("SelectedVehicle");
             OnPropertyChanged("Vehicles");
             GetVehicleList();
         }
 
 
-        private void GetVehicleList()
+        public void GetVehicleList()
         {
             var vehicles = DatabaseHelper.Read<Vehicle>();
 

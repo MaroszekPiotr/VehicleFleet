@@ -24,10 +24,9 @@ namespace VFApp.View.Vehicles
             InitializeComponent();
         }
 
-        private void AddNewVehicleClick(object sender, RoutedEventArgs e)
+        private void ExitClick(object sender, RoutedEventArgs e)
         {
-            NewVehicleWindow newVehicleWindow = new NewVehicleWindow();
-            newVehicleWindow.ShowDialog();
+            this.Close();
         }
     }
 }

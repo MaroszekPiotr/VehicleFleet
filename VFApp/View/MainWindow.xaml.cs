@@ -42,5 +42,22 @@ namespace VFApp.View
             DriversWindow driversWindow = new DriversWindow();
             driversWindow.ShowDialog();
         }
+
+        private void AddCalendarEventClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddDriverClick(object sender, RoutedEventArgs e)
+        {
+            NewDriverWindow newDriverWindow = new NewDriverWindow();
+            newDriverWindow.ShowDialog();
+        }
+
+        private void AddVehicleClick(object sender, RoutedEventArgs e)
+        {
+            NewVehicleWindow newVehicleWindow = new NewVehicleWindow();
+            newVehicleWindow.ShowDialog();
+        }
     }
 }
