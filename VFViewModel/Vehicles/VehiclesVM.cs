@@ -15,7 +15,18 @@ namespace VFViewModel.Vehicles
     public class VehiclesVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public ObservableCollection<Vehicle> Vehicles { get; set; }
+        private ObservableCollection<Vehicle> vehicles;
+
+        public ObservableCollection<Vehicle> Vehicles
+        {
+            get => vehicles;
+            set { 
+                vehicles = value;
+                OnPropertyChanged("Vehicles");
+            }
+        }
+
+        //public ObservableCollection<Vehicle> Vehicles { get; set; }
         private Vehicle selectedVehicle;
         public Vehicle SelectedVehicle
         {
@@ -26,7 +37,8 @@ namespace VFViewModel.Vehicles
         public VehiclesVM()
         {
             Vehicles = new ObservableCollection<Vehicle>();
-            
+            OnPropertyChanged("SelectedVehicle");
+            OnPropertyChanged("Vehicles");
             GetVehicleList();
         }
 
@@ -43,7 +55,11 @@ namespace VFViewModel.Vehicles
                     Vehicles.Add(vehicle);
                 }
             }
+        }
 
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

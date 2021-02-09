@@ -7,15 +7,26 @@
         xmlns:local="clr-namespace:VFApp.View.Drivers"
         mc:Ignorable="d"
         Title="DriversWindow" Height="450" Width="800">
-    <DockPanel>
+    <Window.Resources>
+        <vm:DriversVM x:Key="vmDrivers"/>
+    </Window.Resources>
+    <DockPanel DataContext="{StaticResource vmDrivers}">
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
+                <Button Content="Refresh View"
+                        Margin="10,0,10,0"
+                        Command="{Binding DriversRefreshListCommand}"
+                        x:Name="driverListRefreshBtn"/>
                 <Button Content="Add Driver"
+                        Margin="10,0,10,0"
                         Click="AddNewDriverClick"/>
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"
-                  Width="200">
+                  x:Name="DriversView"
+                  Width="200"
+                  SelectedValue="{Binding SelectedDriver, Mode=TwoWay}"
+                  ItemsSource="{Binding Drivers}">
 
         </ListView>
         <Grid>

@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using VFViewModel.Drivers;
 
 namespace VFViewModel.Commands.DriverCommands
 {
-    public class SaveNewDriverCommand : ICommand
+    public class DriversRefreshListCommand : ICommand
     {
+        DriversVM DriversVM;
         public event EventHandler CanExecuteChanged;
+
+        public DriversRefreshListCommand(DriversVM driversVM)
+        {
+            DriversVM = driversVM;
+        }
 
         public bool CanExecute(object parameter)
         {
@@ -18,7 +25,7 @@ namespace VFViewModel.Commands.DriverCommands
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+           DriversVM.GetDriversList();
         }
     }
 }

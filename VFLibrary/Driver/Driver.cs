@@ -17,6 +17,7 @@ namespace VFLibrary
         public string Name { get; set; }
         public string Surname { get; set; }
         public string AdditionalId { get; set; }
+        public bool IsActive { get; set; }
         public Driver()
         {
             //this.Name = name;

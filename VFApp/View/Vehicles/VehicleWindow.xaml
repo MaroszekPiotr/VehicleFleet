@@ -25,7 +25,7 @@
         <ListView DockPanel.Dock="Left"
                   Width="200"
                   ItemsSource="{Binding Vehicles}"
-                  SelectedItem="{Binding SelectedVehicle}">
+                  SelectedValue="{Binding SelectedVehicle, Mode=TwoWay}">
             
         </ListView>
         <Grid>

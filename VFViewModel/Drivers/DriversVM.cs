@@ -14,7 +14,8 @@ namespace VFViewModel.Drivers
     public class DriversVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        ObservableCollection<Driver> Drivers { get; set; }
+        public DriversRefreshListCommand DriversRefreshListCommand { get; set; }
+        public ObservableCollection<Driver> Drivers { get; set; }
         private Driver selectedDriver;
 
         public Driver SelectedDriver
@@ -25,10 +26,13 @@ namespace VFViewModel.Drivers
         public DriversVM()
         {
             Drivers = new ObservableCollection<Driver>();
+            DriversRefreshListCommand = new DriversRefreshListCommand(this);
+            OnPropertyChanged("Drivers");
+            OnPropertyChanged("SelectedDriver");
             GetDriversList();
         }
 
-        private void GetDriversList()
+        public void GetDriversList()
         {
             var drivers = DatabaseHelper.Read<Driver>();
             Drivers.Clear();
@@ -37,6 +41,9 @@ namespace VFViewModel.Drivers
                 Drivers.Add(driver);
             }
         }
-
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

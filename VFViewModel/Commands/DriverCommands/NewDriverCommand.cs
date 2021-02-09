@@ -11,7 +11,12 @@ namespace VFViewModel.Commands.DriverCommands
     public class NewDriverCommand : ICommand
     {
         public NewDriverVM Vm { get; set; }
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged
+        {
+            add {}
+            remove { }
+
+        }
         public NewDriverCommand(NewDriverVM vm)
         {
             Vm = vm;

@@ -17,6 +17,7 @@ namespace VFViewModel.Drivers
         public string Pesel { get; set; }
         public string AdditionalId { get; set; }
         public NewDriverCommand NewDriverCommand { get; set; }
+        public DriversVM DriversVM { get; set; }
 
         public NewDriverVM()
         {
@@ -27,6 +28,7 @@ namespace VFViewModel.Drivers
         {
             Driver driver = new Driver();
             DatabaseHelper.Insert<Driver>(driver);
+
         }
     }
 }
