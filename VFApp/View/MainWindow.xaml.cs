@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using VFApp.View.Calendar;
 using VFApp.View.Drivers;
 using VFApp.View.Vehicles;
 
@@ -45,7 +46,8 @@ namespace VFApp.View
 
         private void AddCalendarEventClick(object sender, RoutedEventArgs e)
         {
-
+            NewCalendarEventWindow newCalendarEventWindow = new NewCalendarEventWindow();
+            newCalendarEventWindow.ShowDialog();
         }
 
         private void AddDriverClick(object sender, RoutedEventArgs e)

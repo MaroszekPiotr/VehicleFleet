@@ -26,13 +26,15 @@ namespace VFViewModel.Vehicles
                 OnPropertyChanged("Vehicles");
             }
         }
-
-        //public ObservableCollection<Vehicle> Vehicles { get; set; }
         private Vehicle selectedVehicle;
         public Vehicle SelectedVehicle
         {
             get => selectedVehicle;
-            set { selectedVehicle = value; }
+            set 
+            { 
+                selectedVehicle = value;
+                OnPropertyChanged("SelectedVehicle");
+            }
         }
 
         public VehiclesVM()

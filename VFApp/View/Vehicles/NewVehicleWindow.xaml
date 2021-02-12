@@ -81,14 +81,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button DockPanel.Dock="Left" 
-                Content="Save"
+        <Button Content="Save"
                 Command="{Binding NewVehicleCommand}"
                 Click="CloseWindowClick"
                 Grid.Column="3"
                 Grid.Row="3"/>
-        <Button DockPanel.Dock="Left" 
-                Content="Cancel"
+        <Button Content="Cancel"
                 Click="CloseWindowClick"
                 Grid.Column="1"
                 Grid.Row="3"/>
