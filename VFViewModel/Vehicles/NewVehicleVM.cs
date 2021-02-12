@@ -62,7 +62,7 @@ namespace VFViewModel.Vehicles
                 VehicleDescription = this.VehicleDescription,
                 PurchaseDate = this.purchaseDate,
                 InitialKilometersValue = this.InitialKilometersValue,
-                DriverID = (int)this.selectedDriver.Id,
+                DriverID = this.selectedDriver.Id,
                 IsActive = true,
 
             };

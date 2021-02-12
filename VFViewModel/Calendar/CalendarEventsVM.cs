@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using VFLibrary;
 using VFLibrary.CalendarEvent;
 using VFViewModel.Commands.CalendarCommands;
+using VFViewModel.Helpers;
 using VFViewModel.Vehicles;
 
 namespace VFViewModel.Calendar
@@ -45,8 +46,9 @@ namespace VFViewModel.Calendar
                 EventTime = this.EventTime,
                 Decription = this.Decription,
                 Vin = this.selectedVehicle.Vin,
-
+                DriverId = this.selectedVehicle.DriverID,
             };
+            DatabaseHelper.Insert<CalendarEvent>(calendarEvent);
 
         }
         private void OnPropertyChanged(string propertyName)

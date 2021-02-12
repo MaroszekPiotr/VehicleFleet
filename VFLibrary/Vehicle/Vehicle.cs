@@ -16,12 +16,9 @@ namespace VFLibrary
         public string VehicleDescription { get; set; }
         public DateTime PurchaseDate{ get; set; }
         public int InitialKilometersValue { get; set; }
-        //public DateTime RegistrationDate { get; set; }
-        //public DateTime SalesDate { get; set; }
-        //public int EndKilometersValue { get; set; }
         public bool IsActive { get; set; } = true;
         [Indexed]
-        public int DriverID { get; set; }
+        public uint DriverID { get; set; }
 
         public Vehicle()
         {
