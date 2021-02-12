@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VFApp.View.Calendar"
-        xmlns:vmCalendarEvent="clr-namespace:VFLibrary.CalendarEvent;assembly=VFLibrary"
-        xmlns:Calendar="clr-namespace:VFViewModel.Calendar;assembly=VFViewModel" x:Class="VFApp.View.Calendar.NewCalendarEventWindow"
+        xmlns:vmCalendarEvent="clr-namespace:VFViewModel.Calendar;assembly=VFViewModel"
         mc:Ignorable="d"
         Title="NewCalendarEventWindow" Height="450" Width="800">
     <Window.Resources>
-        <vmCalendarEvent:CalendarEvent x:Key="vmCalendarEvent"/>
+        <vmCalendarEvent:CalendarEventsVM x:Key="vmCalendarEvent"/>
     </Window.Resources>
+
     <Grid DataContext="{StaticResource vmCalendarEvent}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -38,16 +38,14 @@
             Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <StackPanel Margin="5">
                         <TextBlock Text="{Binding Vin}"/>
+                        <TextBlock Text="{Binding VehicleDescription}"/>
+                        <TextBlock Text="{Binding VehiclePlate}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListView.DataContext>
-                <Calendar:CalendarEventsVM/>
-            </ListView.DataContext>
         </ListView>
-
         <TextBlock Text="Insert informations:"
                  Grid.Column="3"
                  Grid.Row="1"
@@ -56,18 +54,14 @@
         <StackPanel DockPanel.Dock="Left" 
                     Grid.Row="2"
                     Grid.Column="3"/>
+        <Button Content="Cancel"
+                Click="CloseWindowClick"
+                Grid.Column="1"
+                Grid.Row="3"/>        
         <Button Content="Save"
                 Command="{Binding NewCalendarEventCommand}"
                 Click="CloseWindowClick"
                 Grid.Column="3"
-                Grid.Row="3">
-            <Button.DataContext>
-                <Calendar:CalendarEventsVM/>
-            </Button.DataContext>
-        </Button>
-        <Button Content="Cancel"
-                Click="CloseWindowClick"
-                Grid.Column="1"
                 Grid.Row="3"/>
     </Grid>
 </Window>
