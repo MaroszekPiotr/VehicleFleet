@@ -5,13 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VFApp.View.Vehicles"
         xmlns:vm="clr-namespace:VFViewModel.Vehicles;assembly=VFViewModel"
+        xmlns:vmDrivers="clr-namespace:VFViewModel.Drivers;assembly=VFViewModel"
         mc:Ignorable="d"
         Title="NewVehicleWindow" Height="450" Width="800">
     <Window.Resources>
         <vm:NewVehicleVM x:Key="vmNewVehicle"/>
+        <vmDrivers:DriversVM x:Key="vmDrivers"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource vmNewVehicle}">
-        <StackPanel Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBox Text="Add Vehicle Information:"
+                 Grid.Column="1"
+                 Grid.Row="1"
+                 TextAlignment="Center"
+                 VerticalAlignment="Bottom"/>
+        <StackPanel DockPanel.Dock="Left" 
+                    Grid.Row="2"
+                    Grid.Column="1">
             <TextBlock Text="VIN:"
                        Margin="0,0,0,10"/>
             <TextBox Text="{Binding Vin, Mode=TwoWay}"  
@@ -36,12 +59,38 @@
                        Margin="0,0,0,10"/>
             <TextBox Text="{Binding DriverID, Mode=TwoWay}" 
                      Margin="0,0,0,10"/>
-            <Button Content="Save"
-                    Command="{Binding NewVehicleCommand}"
-                    Click="CloseWindowClick"/>
-            <Button Content="Cancel"
-                    Click="CloseWindowClick"/>
         </StackPanel>
-        
+        <TextBox Text="Assign Driver to vehicle:"
+                 Grid.Column="3"
+                 Grid.Row="1"
+                 TextAlignment="Center"
+                 VerticalAlignment="Bottom"/>
+        <ListView 
+            ItemsSource="{Binding Drivers}"
+            SelectedValue="{Binding SelectedDriver,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+            Grid.Column="3"
+            Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <DockPanel>
+                        <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding LastName}"/>
+                    </DockPanel>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button DockPanel.Dock="Left" 
+                Content="Save"
+                Command="{Binding NewVehicleCommand}"
+                Click="CloseWindowClick"
+                Grid.Column="3"
+                Grid.Row="3"/>
+        <Button DockPanel.Dock="Left" 
+                Content="Cancel"
+                Click="CloseWindowClick"
+                Grid.Column="1"
+                Grid.Row="3"/>
     </Grid>
 </Window>

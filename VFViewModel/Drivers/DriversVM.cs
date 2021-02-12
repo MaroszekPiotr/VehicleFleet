@@ -36,7 +36,7 @@ namespace VFViewModel.Drivers
         {
             var drivers = DatabaseHelper.Read<Driver>();
             Drivers.Clear();
-            foreach(var driver in drivers)
+            foreach (var driver in drivers)
             {
                 Drivers.Add(driver);
             }

@@ -12,11 +12,12 @@ namespace VFLibrary
     {
         [PrimaryKey,AutoIncrement]
         public uint Id { get; set; }
-        private string pesel;
-        private List<DriverLicense> driverLicense;
-        public string Name { get; set; }
-        public string Surname { get; set; }
+        //private string pesel;
+        //private List<DriverLicense> driverLicense;
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string AdditionalId { get; set; }
+        public string Pesel { get; set; }
         public bool IsActive { get; set; } = true;
         public Driver()
         {

@@ -14,11 +14,11 @@ namespace VFLibrary
         public string Vin { get; set; }
         public string VehiclePlate { get; set; }
         public string VehicleDescription { get; set; }
-        public DateTime purchaseDate{ get; private set; }
-        public int InitialKilometersValue { get; }
-        public DateTime RegistrationDate { get; set; }
-        public DateTime SalesDate { get; set; }
-        public int EndKilometersValue { get; set; }
+        public DateTime PurchaseDate{ get; set; }
+        public int InitialKilometersValue { get; set; }
+        //public DateTime RegistrationDate { get; set; }
+        //public DateTime SalesDate { get; set; }
+        //public int EndKilometersValue { get; set; }
         public bool IsActive { get; set; } = true;
         [Indexed]
         public int DriverID { get; set; }
