@@ -8,12 +8,12 @@ using VFViewModel.Drivers;
 
 namespace VFViewModel.Commands.DriverCommands
 {
-    public class DriversRefreshListCommand : ICommand
+    public class SetDriverAsActiveCommand : ICommand
     {
-        DriversVM DriversVM;
+        DriversVM DriversVM { get; set; }
         public event EventHandler CanExecuteChanged;
 
-        public DriversRefreshListCommand(DriversVM driversVM)
+        public SetDriverAsActiveCommand(DriversVM driversVM)
         {
             DriversVM = driversVM;
         }
@@ -25,7 +25,7 @@ namespace VFViewModel.Commands.DriverCommands
 
         public void Execute(object parameter)
         {
-           DriversVM.GetDriversList(true);
+            DriversVM.SetDriverStatus(true);
         }
     }
 }

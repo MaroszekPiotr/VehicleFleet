@@ -16,6 +16,13 @@
                 <Button Content="Back to Main Window"
                         Margin="10,0,10,0"
                         Click="ExitClick"/>
+                <Separator/>
+                <Button Content="Active Drivers"
+                        Command="{Binding DriversRefreshListCommand}"
+                        Margin="10,0,10,0"/>
+                <Button Content="Archived Drivers"
+                        Command="{Binding ShowArchivedDriversCommand}"
+                        Margin="10,0,10,0"/>
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"
@@ -55,6 +62,8 @@
                      Margin="0,0,0,10"/>
                 <Button Content="Set Driver as Archived"
                         Command="{Binding SetDriverAsArchiveCommand}"/>
+                <Button Content="Set Driver as Active"
+                        Command="{Binding SetDriverAsActiveCommand}"/>
                 <Button Content="Save"
                         Command="{Binding UpdateDriverCommand}"/>
                 <Button Content="Cancel"

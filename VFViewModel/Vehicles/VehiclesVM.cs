@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using VFLibrary;
 using VFViewModel.Commands;
 using VFViewModel.Commands.VehicleCommands;
+using VFViewModel.Drivers;
 using VFViewModel.Helpers;
 
 namespace VFViewModel.Vehicles
@@ -16,6 +17,24 @@ namespace VFViewModel.Vehicles
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public VehiclesRefreshListCommand VehiclesRefreshListCommand { get; set; }
+        public ShowArchivedVehiclesCommand ShowArchivedVehiclesCommand { get; set; }
+        public SetVehicleAsActiveCommand SetVehicleAsActiveCommand { get; set; }
+        public SetVehicleAsArchiveCommand SetVehicleAsArchiveCommand { get; set; }
+        public UpdateVehicleCommand UpdateVehicleCommand { get; set; }
+        public DriversVM DriversVM { get; set; }
+        private Driver assignedDriver;
+
+        public Driver AssignedDriver
+        {
+            get => assignedDriver;
+            set { 
+                assignedDriver = value;
+                OnPropertyChanged("AssignedDriver");
+            }
+        }
+
+
+
         private ObservableCollection<Vehicle> vehicles;
 
         public ObservableCollection<Vehicle> Vehicles
@@ -33,23 +52,30 @@ namespace VFViewModel.Vehicles
             set 
             { 
                 selectedVehicle = value;
+                AssignedDriver = GetAssignedDriver();
                 OnPropertyChanged("SelectedVehicle");
             }
         }
 
         public VehiclesVM()
         {
+            DriversVM = new DriversVM();
             Vehicles = new ObservableCollection<Vehicle>();
             VehiclesRefreshListCommand = new VehiclesRefreshListCommand(this);
-            OnPropertyChanged("SelectedVehicle");
-            OnPropertyChanged("Vehicles");
-            GetVehicleList();
+            ShowArchivedVehiclesCommand = new ShowArchivedVehiclesCommand(this);
+            SetVehicleAsActiveCommand = new SetVehicleAsActiveCommand(this);
+            SetVehicleAsArchiveCommand = new SetVehicleAsArchiveCommand(this);
+            UpdateVehicleCommand = new UpdateVehicleCommand(this);
+            //OnPropertyChanged("SelectedVehicle");
+            //OnPropertyChanged("Vehicles");
+            //OnPropertyChanged("AssignedDriver");
+            GetVehicleList(true);
         }
 
 
-        public void GetVehicleList()
+        public void GetVehicleList(bool isActiveValue)
         {
-            var vehicles = DatabaseHelper.Read<Vehicle>();
+            var vehicles = DatabaseHelper.Read<Vehicle>().Where(vehicle=>vehicle.IsActive==isActiveValue);
 
             if (vehicles != null)
             {
@@ -61,6 +87,38 @@ namespace VFViewModel.Vehicles
             }
         }
 
+        public void SetVehicleStatus(bool value)
+        {
+            selectedVehicle.IsActive = value;
+            UpdateSelectedVehicle();
+        }
+
+        public void AssaignSelectedDriverToVehicle()
+        {
+            selectedVehicle.DriverID = DriversVM.SelectedDriver.Id;
+            UpdateSelectedVehicle();
+        }
+
+        public void UpdateSelectedVehicle()
+        {
+            DatabaseHelper.Update<Vehicle>(SelectedVehicle);
+            GetVehicleList(true);
+        }
+
+        private Driver GetAssignedDriver()
+        {
+            Driver driver = null;
+            if (selectedVehicle.DriverID != 0)
+            {
+                uint driverId = selectedVehicle.DriverID;
+                var query = DriversVM.Drivers.Where(driver => driver.Id == driverId).ToList()[0];
+                if (query != null)
+                {
+                    driver = query;
+                }
+            }
+            return driver;
+        }
         private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

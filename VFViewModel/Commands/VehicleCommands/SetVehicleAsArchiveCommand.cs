@@ -4,20 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using VFViewModel.Drivers;
+using VFViewModel.Vehicles;
 
-namespace VFViewModel.Commands.DriverCommands
+namespace VFViewModel.Commands.VehicleCommands
 {
-    public class DriversRefreshListCommand : ICommand
+    public class SetVehicleAsArchiveCommand : ICommand
     {
-        DriversVM DriversVM;
+        public VehiclesVM VehiclesVM { get; set; }
         public event EventHandler CanExecuteChanged;
 
-        public DriversRefreshListCommand(DriversVM driversVM)
+        public SetVehicleAsArchiveCommand(VehiclesVM vehiclesVM)
         {
-            DriversVM = driversVM;
+            VehiclesVM = vehiclesVM;
         }
-
         public bool CanExecute(object parameter)
         {
             return true;
@@ -25,7 +24,7 @@ namespace VFViewModel.Commands.DriverCommands
 
         public void Execute(object parameter)
         {
-           DriversVM.GetDriversList(true);
+            VehiclesVM.SetVehicleStatus(false);
         }
     }
 }

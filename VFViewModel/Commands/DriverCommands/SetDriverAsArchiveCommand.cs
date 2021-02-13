@@ -25,7 +25,7 @@ namespace VFViewModel.Commands.DriverCommands
 
         public void Execute(object parameter)
         {
-            DriversVM.SetDriverAsArchive();
+            DriversVM.SetDriverStatus(false);
         }
     }
 }

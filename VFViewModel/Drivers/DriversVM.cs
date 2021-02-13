@@ -15,7 +15,9 @@ namespace VFViewModel.Drivers
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public DriversRefreshListCommand DriversRefreshListCommand { get; set; }
+        public ShowArchivedDriversCommand ShowArchivedDriversCommand { get; set;}
         public SetDriverAsArchiveCommand SetDriverAsArchiveCommand { get; set; }
+        public SetDriverAsActiveCommand SetDriverAsActiveCommand { get; set; }
         public UpdateDriverCommand UpdateDriverCommand { get; set; }
         public ObservableCollection<Driver> Drivers { get; set; }
         private Driver selectedDriver;
@@ -33,16 +35,17 @@ namespace VFViewModel.Drivers
         {
             Drivers = new ObservableCollection<Driver>();
             DriversRefreshListCommand = new DriversRefreshListCommand(this);
+            ShowArchivedDriversCommand = new ShowArchivedDriversCommand(this);
             SetDriverAsArchiveCommand = new SetDriverAsArchiveCommand(this);
             UpdateDriverCommand = new UpdateDriverCommand(this);
             OnPropertyChanged("Drivers");
             OnPropertyChanged("SelectedDriver");
-            GetDriversList();
+            GetDriversList(true);
         }
 
-        public void GetDriversList()
+        public void GetDriversList(bool isActiveValue)
         {
-            var drivers = DatabaseHelper.Read<Driver>();
+            var drivers = DatabaseHelper.Read<Driver>().Where(driver=>driver.IsActive==isActiveValue);
             Drivers.Clear();
             foreach (var driver in drivers)
             {
@@ -50,17 +53,16 @@ namespace VFViewModel.Drivers
             }
         }
 
-        public void SetDriverAsArchive()
+        public void SetDriverStatus(bool value)
         {
-            selectedDriver.IsActive = false;
-            DatabaseHelper.Update<Driver>(selectedDriver);
-            GetDriversList();
+            selectedDriver.IsActive = value;
+            UpdateSelectedDriver();
         }
 
         public void UpdateSelectedDriver()
         {
             DatabaseHelper.Update<Driver>(selectedDriver);
-            GetDriversList();
+            GetDriversList(true);
         }
 
         private void OnPropertyChanged(string propertyName)

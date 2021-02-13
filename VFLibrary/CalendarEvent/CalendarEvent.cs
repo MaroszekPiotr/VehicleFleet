@@ -19,5 +19,6 @@ namespace VFLibrary.CalendarEvent
 
         public DateTime EventTime { get; set; }
         public string Decription { get; set; }
+        public bool IsDone { get; set; } = false;
     }
 }

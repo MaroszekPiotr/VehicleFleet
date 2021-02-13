@@ -13,9 +13,16 @@
     <DockPanel DataContext="{StaticResource vmVehicles}">
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Content="Exit"
+                <Button Content="Back to Main Window"
                         Margin="10,0,10,0"
                         Click="ExitClick"/>
+                <Separator/>
+                <Button Content="Active Vehicles"
+                        Command="{Binding VehiclesRefreshListCommand}"
+                        Margin="10,0,10,0"/>
+                <Button Content="Archived Vehicles"
+                        Command="{Binding ShowArchivedVehiclesCommand}"
+                        Margin="10,0,10,0"/>
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"
@@ -35,9 +42,84 @@
             
         </ListView>
         <Grid>
-            <StackPanel>
-                
-            </StackPanel>
+            <DockPanel>
+                <Grid DockPanel.Dock="Right"
+                      Width="200">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="10*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Assign another Driver to Vehicle: "
+                               VerticalAlignment="Bottom"
+                               Grid.Row="0"/>
+                    <ListView ItemsSource="{Binding DriversVM.Drivers}"
+                              SelectedValue="{Binding DriversVM.SelectedDriver}"
+                              Grid.Row="1">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <TextBlock Text="{Binding FirstName}"/>
+                                    <TextBlock Text=" "/>
+                                    <TextBlock Text="{Binding LastName}"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Content="Assign selected Driver To Vehicle"
+                            Grid.Row="2"/>
+                </Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Margin="10"
+                                Grid.Row="0">
+                        <TextBlock Text="Vehicle Plate:"
+                                   Margin="0,0,0,10"/>
+                        <TextBox Text="{Binding SelectedVehicle.VehiclePlate, Mode=TwoWay}" 
+                                 Margin="0,0,0,10"/>
+                        <TextBlock Text="Vehicle Description:"
+                                   Margin="0,0,0,10"/>
+                        <TextBox Text="{Binding SelectedVehicle.VehicleDescription, Mode=TwoWay}" 
+                                 Margin="0,0,0,10"/>
+                        <TextBlock Text="Assigned Driver:"
+                                   Margin="0,0,0,10"/>
+                        <TextBlock Text="{Binding AssignedDriver.FirstName,Mode=OneWay}" 
+                                 Margin="0,0,0,10"/>
+                        <TextBlock Text="{Binding AssignedDriver.LastName,Mode=OneWay}" 
+                                 Margin="0,0,0,10"/>
+                        
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Content="Save Changes"
+                                Command="{Binding UpdateVehicleCommand}"
+                                Grid.Row="0"
+                                Grid.Column="0"/>
+                        <Button Content="Cancel"
+                                Command="{Binding VehiclesRefreshListCommand}"
+                                Grid.Row="0"
+                                Grid.Column="1"/>
+                        <Button Content="Set as Archive"
+                                Command="{Binding SetVehicleAsArchiveCommand}"
+                                Grid.Row="1"
+                                Grid.Column="1"/>
+                        <Button Content="Set as Active"
+                                Command="{Binding SetVehicleAsActiveCommand}"
+                                Grid.Row="1"
+                                Grid.Column="0"/>
+                    </Grid>
+                </Grid>
+            </DockPanel>
         </Grid>
     </DockPanel>
 </Window>

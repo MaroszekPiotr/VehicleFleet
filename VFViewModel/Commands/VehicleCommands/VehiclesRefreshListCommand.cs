@@ -25,7 +25,7 @@ namespace VFViewModel.Commands.VehicleCommands
 
         public void Execute(object parameter)
         {
-            VehiclesVM.GetVehicleList();
+            VehiclesVM.GetVehicleList(true);
         }
     }
 }
