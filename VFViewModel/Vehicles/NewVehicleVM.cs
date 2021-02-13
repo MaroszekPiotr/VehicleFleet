@@ -48,6 +48,7 @@ namespace VFViewModel.Vehicles
             NewVehicleCommand = new NewVehicleCommand(this);
             DriversVM = new DriversVM();
             Drivers = DriversVM.Drivers;
+            purchaseDate = DateTime.Today;
             OnPropertyChanged("Drivers");
             OnPropertyChanged("SelectedDriver");
         }

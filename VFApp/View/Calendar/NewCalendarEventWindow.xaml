@@ -54,7 +54,9 @@
                  VerticalAlignment="Bottom"/>
         <StackPanel DockPanel.Dock="Left" 
                     Grid.Row="2"
-                    Grid.Column="3"/>
+                    Grid.Column="3">
+            <DatePicker ></DatePicker>
+        </StackPanel>
         <Button Content="Cancel"
                 Click="CloseWindowClick"
                 Grid.Column="1"

@@ -31,6 +31,7 @@ namespace VFViewModel.Drivers
                 LastName = this.LastName,
                 Pesel = this.Pesel,
                 AdditionalId = this.AdditionalId,
+                Nationality = this.Nationality,
                 IsActive = true,
             };
             DatabaseHelper.Insert<Driver>(driver);

@@ -16,6 +16,7 @@ namespace VFLibrary
         //private List<DriverLicense> driverLicense;
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Nationality { get; set; }
         public string AdditionalId { get; set; }
         public string Pesel { get; set; }
         public bool IsActive { get; set; } = true;

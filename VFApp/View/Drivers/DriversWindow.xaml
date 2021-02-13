@@ -13,7 +13,7 @@
     <DockPanel DataContext="{StaticResource vmDrivers}">
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Content="Exit"
+                <Button Content="Back to Main Window"
                         Margin="10,0,10,0"
                         Click="ExitClick"/>
             </ToolBar>
@@ -32,7 +32,34 @@
             </ListView.ItemTemplate>
         </ListView>
         <Grid>
-
+            <StackPanel Margin="10">
+                <TextBlock Text="First Name:"
+                       Margin="0,0,0,10"/>
+                <TextBox Text="{Binding SelectedDriver.FirstName, Mode=TwoWay}"  
+                     Margin="0,0,0,10"/>
+                <TextBlock Text="Last Name:"
+                       Margin="0,0,0,10"/>
+                <TextBox Text="{Binding SelectedDriver.LastName, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+                <TextBlock Text="Nationality:"
+                       Margin="0,0,0,10"/>
+                <TextBox Text="{Binding SelectedDriver.Nationality, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+                <TextBlock Text="PESEL:"
+                       Margin="0,0,0,10"/>
+                <TextBox Text="{Binding SelectedDriver.Pesel, Mode=TwoWay}"
+                     Margin="0,0,0,10"/>
+                <TextBlock Text="Additional ID:"
+                       Margin="0,0,0,10"/>
+                <TextBox Text="{Binding SelectedDriver.AdditionalId, Mode=TwoWay}" 
+                     Margin="0,0,0,10"/>
+                <Button Content="Set Driver as Archived"
+                        Command="{Binding SetDriverAsArchiveCommand}"/>
+                <Button Content="Save"
+                        Command="{Binding UpdateDriverCommand}"/>
+                <Button Content="Cancel"
+                        Command="{Binding DriversRefreshListCommand}"/>
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>

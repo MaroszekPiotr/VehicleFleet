@@ -27,7 +27,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox Text="Add Vehicle Information:"
+        <TextBlock Text="Add Vehicle Information:"
                  Grid.Column="1"
                  Grid.Row="1"
                  TextAlignment="Center"
@@ -49,7 +49,7 @@
                      Margin="0,0,0,10"/>
             <TextBlock Text="Purchase Date:"
                        Margin="0,0,0,10"/>
-            <TextBox Text="{Binding purchaseDate, Mode=TwoWay}"
+            <DatePicker SelectedDate="{Binding purchaseDate, Mode=TwoWay}"
                      Margin="0,0,0,10"/>
             <TextBlock Text="Initial Kilometers Value:"
                        Margin="0,0,0,10"/>
@@ -60,7 +60,7 @@
             <TextBox Text="{Binding DriverID, Mode=TwoWay}" 
                      Margin="0,0,0,10"/>
         </StackPanel>
-        <TextBox Text="Assign Driver to vehicle:"
+        <TextBlock Text="Assign Driver to vehicle:"
                  Grid.Column="3"
                  Grid.Row="1"
                  TextAlignment="Center"

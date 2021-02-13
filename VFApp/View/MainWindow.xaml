@@ -9,42 +9,45 @@
     <Window.Resources>
     </Window.Resources>
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="File">
-                <MenuItem Header="New "/>
-                <Separator/>
-                <MenuItem Header="Exit" Click="MenuFileExit_Click"/>
-            </MenuItem>
-            <MenuItem Header="Driver">
-                <MenuItem Header="New Driver"/>
-            </MenuItem>
-            <MenuItem Header="Vehicle">
-                <MenuItem Header="New Vehicle"/>
-            </MenuItem>
-            <MenuItem Header="About App"></MenuItem>
-        </Menu>
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
-                <Button Content="Add Calendar Event"
+                <Button Content="Drivers Library"
+                        Margin="20, 0 ,20,0"
+                        Click="OpenDriverWindowClick"/>
+                <Separator/>
+                <Button Content="Vehicles Library"
+                        Margin="20, 0 ,20,0"
+                        Click="OpenVehicleWindowClick"/>
+                <Separator/>
+                <Button Content="Show Vehicle Hisory"
+                        Margin="20,0,20,0"/>
+                <Separator/>
+                <Button Content="Exit"
+                        Margin="20, 0 ,20,0"
+                        Click="MenuFileExit_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar>
+                <Button Content="Add Schedule Event"
                         Margin="20, 0 ,20,0"
                         Click="AddCalendarEventClick"/>
+                <Button Content="Add Vehicle Event"
+                        Margin="20, 0 ,20,0"/>
                 <Button Content="Add Driver"
                         Margin="20, 0 ,20,0"
                         Click="AddDriverClick"/>
                 <Button Content="Add Vehicle"
                         Margin="20, 0 ,20,0"
                         Click="AddVehicleClick"/>
-                <Button Content="Drivers Library"
-                        Margin="20, 0 ,20,0"
-                        Click="OpenDriverWindowClick"/>
-                <Button Content="Vehicles Library"
-                        Margin="20, 0 ,20,0"
-                        Click="OpenVehicleWindowClick"/>
-                <Button Content="Exit"
-                        Margin="20, 0 ,20,0"
-                        Click="MenuFileExit_Click"/>
+                <Button Content="Update Vehicle Data"
+                        Margin="20,0,20,0"/>
             </ToolBar>
         </ToolBarTray>
+        <ListView DockPanel.Dock="Left"
+                  Width="200">
+            
+        </ListView>
         <Grid>
             
         </Grid>

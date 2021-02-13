@@ -12,6 +12,7 @@ namespace VFLibrary
     {
         [PrimaryKey]
         public string Vin { get; set; }
+        [Unique]
         public string VehiclePlate { get; set; }
         public string VehicleDescription { get; set; }
         public DateTime PurchaseDate{ get; set; }
