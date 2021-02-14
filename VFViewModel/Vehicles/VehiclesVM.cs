@@ -16,11 +16,13 @@ namespace VFViewModel.Vehicles
     public class VehiclesVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        #region commands
         public VehiclesRefreshListCommand VehiclesRefreshListCommand { get; set; }
         public ShowArchivedVehiclesCommand ShowArchivedVehiclesCommand { get; set; }
         public SetVehicleAsActiveCommand SetVehicleAsActiveCommand { get; set; }
         public SetVehicleAsArchiveCommand SetVehicleAsArchiveCommand { get; set; }
         public UpdateVehicleCommand UpdateVehicleCommand { get; set; }
+        #endregion
         public DriversVM DriversVM { get; set; }
         private Driver assignedDriver;
 

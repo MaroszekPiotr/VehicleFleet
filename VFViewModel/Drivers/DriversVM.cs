@@ -14,11 +14,13 @@ namespace VFViewModel.Drivers
     public class DriversVM : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        #region command
         public DriversRefreshListCommand DriversRefreshListCommand { get; set; }
         public ShowArchivedDriversCommand ShowArchivedDriversCommand { get; set;}
         public SetDriverAsArchiveCommand SetDriverAsArchiveCommand { get; set; }
         public SetDriverAsActiveCommand SetDriverAsActiveCommand { get; set; }
         public UpdateDriverCommand UpdateDriverCommand { get; set; }
+        #endregion
         public ObservableCollection<Driver> Drivers { get; set; }
         private Driver selectedDriver;
 
@@ -38,8 +40,8 @@ namespace VFViewModel.Drivers
             ShowArchivedDriversCommand = new ShowArchivedDriversCommand(this);
             SetDriverAsArchiveCommand = new SetDriverAsArchiveCommand(this);
             UpdateDriverCommand = new UpdateDriverCommand(this);
-            OnPropertyChanged("Drivers");
-            OnPropertyChanged("SelectedDriver");
+            //OnPropertyChanged("Drivers");
+            //OnPropertyChanged("SelectedDriver");
             GetDriversList(true);
         }
 
