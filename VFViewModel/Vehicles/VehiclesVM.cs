@@ -13,9 +13,8 @@ using VFViewModel.Helpers;
 
 namespace VFViewModel.Vehicles
 {
-    public class VehiclesVM : INotifyPropertyChanged
+    public class VehiclesVM : WindowHelper
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         #region commands
         public VehiclesRefreshListCommand VehiclesRefreshListCommand { get; set; }
         public ShowArchivedVehiclesCommand ShowArchivedVehiclesCommand { get; set; }
@@ -68,9 +67,6 @@ namespace VFViewModel.Vehicles
             SetVehicleAsActiveCommand = new SetVehicleAsActiveCommand(this);
             SetVehicleAsArchiveCommand = new SetVehicleAsArchiveCommand(this);
             UpdateVehicleCommand = new UpdateVehicleCommand(this);
-            //OnPropertyChanged("SelectedVehicle");
-            //OnPropertyChanged("Vehicles");
-            //OnPropertyChanged("AssignedDriver");
             GetVehicleList(true);
         }
 
@@ -120,10 +116,6 @@ namespace VFViewModel.Vehicles
                 }
             }
             return driver;
-        }
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

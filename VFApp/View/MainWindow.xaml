@@ -33,15 +33,14 @@
                         Margin="20, 0 ,20,0"
                         Click="AddCalendarEventClick"/>
                 <Button Content="Add Vehicle Event"
-                        Margin="20, 0 ,20,0"/>
+                        Margin="20, 0 ,20,0" 
+                        Click="AddNewVehicleEventClick"/>
                 <Button Content="Add Driver"
                         Margin="20, 0 ,20,0"
                         Click="AddDriverClick"/>
                 <Button Content="Add Vehicle"
                         Margin="20, 0 ,20,0"
                         Click="AddVehicleClick"/>
-                <Button Content="Update Vehicle Data"
-                        Margin="20,0,20,0"/>
             </ToolBar>
         </ToolBarTray>
         <ListView DockPanel.Dock="Left"

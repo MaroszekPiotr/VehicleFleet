@@ -55,6 +55,8 @@
                     Grid.Column="3">
             <TextBlock Text="Insert event date:"/>
             <DatePicker SelectedDate="{Binding EventTime, Mode=TwoWay}"/>
+            <TextBlock Text="Insert odometer value:"/>
+            <TextBox Text="{Binding VehicleKilometersValue, Mode=TwoWay}"/>
             <TextBlock Text="Insert event description:"/>
             <TextBox Text="{Binding Description, Mode=TwoWay}"
                      TextWrapping="Wrap"

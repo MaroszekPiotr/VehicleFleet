@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using VFApp.View.Calendar;
 using VFApp.View.Drivers;
+using VFApp.View.Event;
 using VFApp.View.Vehicles;
 
 namespace VFApp.View
@@ -60,6 +61,12 @@ namespace VFApp.View
         {
             NewVehicleWindow newVehicleWindow = new NewVehicleWindow();
             newVehicleWindow.ShowDialog();
+        }
+
+        private void AddNewVehicleEventClick(object sender, RoutedEventArgs e)
+        {
+            NewEventWindow vehicleWindow = new NewEventWindow();
+            vehicleWindow.ShowDialog();
         }
     }
 }

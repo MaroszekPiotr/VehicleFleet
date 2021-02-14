@@ -16,6 +16,7 @@ namespace VFViewModel.Event
         #region commands
         public NewEventCommand NewEventCommand { get; set; }
         #endregion
+        public uint VehicleKilometersValue { get; set; } = 0;
         public NewEventVM()
         {
             NewEventCommand = new NewEventCommand(this);
@@ -31,6 +32,7 @@ namespace VFViewModel.Event
                 Description = this.Description,
                 Vin = this.VehiclesVM.SelectedVehicle.Vin,
                 DriverId = this.VehiclesVM.SelectedVehicle.DriverID,
+                VehicleKilometersValue = this.VehicleKilometersValue
             };
             DatabaseHelper.Insert<VehicleHistory>(vehicleHistoryEvent);
         }

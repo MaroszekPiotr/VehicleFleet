@@ -11,9 +11,8 @@ using VFViewModel.Helpers;
 
 namespace VFViewModel.Drivers
 {
-    public class DriversVM : INotifyPropertyChanged
+    public class DriversVM : WindowHelper
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         #region command
         public DriversRefreshListCommand DriversRefreshListCommand { get; set; }
         public ShowArchivedDriversCommand ShowArchivedDriversCommand { get; set;}
@@ -40,8 +39,6 @@ namespace VFViewModel.Drivers
             ShowArchivedDriversCommand = new ShowArchivedDriversCommand(this);
             SetDriverAsArchiveCommand = new SetDriverAsArchiveCommand(this);
             UpdateDriverCommand = new UpdateDriverCommand(this);
-            //OnPropertyChanged("Drivers");
-            //OnPropertyChanged("SelectedDriver");
             GetDriversList(true);
         }
 
@@ -65,11 +62,6 @@ namespace VFViewModel.Drivers
         {
             DatabaseHelper.Update<Driver>(selectedDriver);
             GetDriversList(true);
-        }
-
-        private void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
