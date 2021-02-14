@@ -11,7 +11,7 @@ namespace VFViewModel.Commands.VehicleCommands
 {
     public class VehiclesRefreshListCommand : ICommand
     {
-        VehiclesVM VehiclesVM { get; set; }
+        private VehiclesVM VehiclesVM { get; set; }
         public event EventHandler CanExecuteChanged;
 
         public VehiclesRefreshListCommand(VehiclesVM vehiclesVM)

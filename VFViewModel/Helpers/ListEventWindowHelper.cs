@@ -9,9 +9,6 @@ namespace VFViewModel.Helpers
 {
     public abstract class ListEventWindowHelper : EventWindowHelper
     {
-        //public Driver Driver { get; set; }
-        //public Vehicle Vehicle { get; set; }
-
         public static Driver ReadDriver(uint driverID)
         {
             Driver driver = null;

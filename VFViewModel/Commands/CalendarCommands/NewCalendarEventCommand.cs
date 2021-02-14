@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.CalendarCommands
 {
     public class NewCalendarEventCommand : ICommand
     {
-        public NewCalendarEventsVM CalendarEventsVM { get; set; }
+        private NewCalendarEventsVM CalendarEventsVM { get; set; }
         public event EventHandler CanExecuteChanged;
         public NewCalendarEventCommand(NewCalendarEventsVM calendarEventsVM)
         {

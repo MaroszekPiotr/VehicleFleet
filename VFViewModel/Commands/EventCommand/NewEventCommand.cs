@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.EventCommand
 {
     public class NewEventCommand : ICommand
     {
-        public NewEventVM NewEventVM { get; set; }
+        private NewEventVM NewEventVM { get; set; }
         public event EventHandler CanExecuteChanged;
 
         public NewEventCommand(NewEventVM newEventVM)

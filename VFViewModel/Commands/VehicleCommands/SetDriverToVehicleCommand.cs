@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.VehicleCommands
 {
     public class SetDriverToVehicleCommand : ICommand
     {
-        VehiclesVM VehiclesVM { get; set; }
+        private VehiclesVM VehiclesVM { get; set; }
         public event EventHandler CanExecuteChanged;
         public SetDriverToVehicleCommand(VehiclesVM vehiclesVM)
         {

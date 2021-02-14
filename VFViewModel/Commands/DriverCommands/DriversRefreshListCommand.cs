@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.DriverCommands
 {
     public class DriversRefreshListCommand : ICommand
     {
-        DriversVM DriversVM;
+        private DriversVM DriversVM;
         public event EventHandler CanExecuteChanged;
 
         public DriversRefreshListCommand(DriversVM driversVM)

@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.VehicleCommands
 {
     public class SetVehicleAsArchiveCommand : ICommand
     {
-        public VehiclesVM VehiclesVM { get; set; }
+        private VehiclesVM VehiclesVM { get; set; }
         public event EventHandler CanExecuteChanged;
 
         public SetVehicleAsArchiveCommand(VehiclesVM vehiclesVM)

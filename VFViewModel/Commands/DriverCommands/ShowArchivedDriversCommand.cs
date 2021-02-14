@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.DriverCommands
 {
     public class ShowArchivedDriversCommand : ICommand
     {
-        public DriversVM DriversVM { get; set; }
+        private DriversVM DriversVM { get; set; }
         public event EventHandler CanExecuteChanged;
         public ShowArchivedDriversCommand(DriversVM driversVM)
         {

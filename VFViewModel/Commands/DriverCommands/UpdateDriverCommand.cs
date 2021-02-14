@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.DriverCommands
 {
     public class UpdateDriverCommand : ICommand
     {
-        public DriversVM DriversVM { get; set; }
+        private DriversVM DriversVM { get; set; }
         public event EventHandler CanExecuteChanged;
         public UpdateDriverCommand(DriversVM driversVM)
         {

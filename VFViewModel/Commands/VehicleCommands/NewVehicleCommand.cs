@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.VehicleCommands
 {
     public class NewVehicleCommand : ICommand
     {
-        public NewVehicleVM Vm { get; set; }
+        private NewVehicleVM Vm { get; set; }
 
         public event EventHandler CanExecuteChanged;
 

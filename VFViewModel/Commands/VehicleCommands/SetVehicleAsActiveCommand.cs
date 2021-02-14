@@ -10,7 +10,7 @@ namespace VFViewModel.Commands.VehicleCommands
 {
     public class SetVehicleAsActiveCommand : ICommand
     {
-        public VehiclesVM VehiclesVM { get; set; }
+        private VehiclesVM VehiclesVM { get; set; }
         public event EventHandler CanExecuteChanged;
 
         public SetVehicleAsActiveCommand(VehiclesVM vehiclesVM)
