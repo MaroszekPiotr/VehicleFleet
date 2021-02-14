@@ -14,13 +14,13 @@ using VFViewModel.Vehicles;
 
 namespace VFViewModel.Calendar
 {
-    public class CalendarEventsVM : EventWindowHelper
+    public class NewCalendarEventsVM : NewEventWindowHelper
     {
         #region command
         public NewCalendarEventCommand NewCalendarEventCommand { get; set; }
         #endregion
 
-        public CalendarEventsVM()
+        public NewCalendarEventsVM()
         {
             NewCalendarEventCommand = new NewCalendarEventCommand(this);
             VehiclesVM = new VehiclesVM();

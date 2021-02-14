@@ -14,8 +14,12 @@ namespace VFLibrary.CalendarEvent
         public uint Id { get; set; }
         [Indexed]
         public string Vin { get; set; }
+        [Ignore]
+        public Vehicle Vehicle { get; set; }
         [Indexed]
         public uint DriverId { get; set; }
+        [Ignore]
+        public Driver Driver { get; set; }
 
         public DateTime EventTime { get; set; }
         public string Description { get; set; }

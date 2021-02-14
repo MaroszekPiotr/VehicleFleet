@@ -31,10 +31,11 @@
                   ItemsSource="{Binding Drivers}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
+                    <DockPanel>
                         <TextBlock Text="{Binding FirstName}"/>
+                        <TextBlock Text=" "/>
                         <TextBlock Text="{Binding LastName}"/>
-                    </StackPanel>
+                    </DockPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

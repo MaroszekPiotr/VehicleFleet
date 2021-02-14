@@ -12,8 +12,6 @@ namespace VFLibrary
     {
         [PrimaryKey,AutoIncrement]
         public uint Id { get; set; }
-        //private string pesel;
-        //private List<DriverLicense> driverLicense;
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Nationality { get; set; }

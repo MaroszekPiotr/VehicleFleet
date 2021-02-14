@@ -4,11 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VFApp.View"
+        xmlns:vmSchaduleWindow="clr-namespace:VFViewModel.Calendar;assembly=VFViewModel"
         mc:Ignorable="d"
         Title="VehicleFleet" Height="450" Width="800">
     <Window.Resources>
+        <vmSchaduleWindow:SchaduleEventsVM x:Key="vmSchaduleWindow"/>
     </Window.Resources>
-    <DockPanel>
+    <DockPanel DataContext="{StaticResource vmSchaduleWindow}">
         <ToolBarTray DockPanel.Dock="Top">
             <ToolBar>
                 <Button Content="Drivers Library"
@@ -19,7 +21,7 @@
                         Margin="20, 0 ,20,0"
                         Click="OpenVehicleWindowClick"/>
                 <Separator/>
-                <Button Content="Show Vehicle Hisory"
+                <Button Content="Vehicle Hisory"
                         Margin="20,0,20,0"/>
                 <Separator/>
                 <Button Content="Exit"
@@ -43,12 +45,59 @@
                         Click="AddVehicleClick"/>
             </ToolBar>
         </ToolBarTray>
-        <ListView DockPanel.Dock="Left"
-                  Width="200">
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+        <ListView Grid.Row="0"
+                  Width="200"
+                  ItemsSource="{Binding SchaduleEvents}"
+                  SelectedValue="{Binding SelectedEvent, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding EventTime,StringFormat=dd/MM/yyyy}"/>
+                        <TextBlock Text="{Binding Vehicle.VehicleDescription}"/>
+                        <TextBlock Text="{Binding Vehicle.VehiclePlate}"/>
+                        <DockPanel>
+                            <TextBlock Text="{Binding Driver.FirstName}"/>
+                            <TextBlock Text=" "/>
+                            <TextBlock Text="{Binding Driver.LastName}"/>
+                        </DockPanel>
+                        <Separator/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
             
         </ListView>
+            <Button Grid.Row="1" 
+                    Content="Refresh List"
+                    Command="{Binding RefreshSchaduleListCommand}"/>
+        </Grid>
         <Grid>
-            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" 
+                        Grid.Column="0" 
+                        Grid.ColumnSpan="2"
+                        Margin="10,10,10,10">
+                <TextBlock Text="{Binding SelectedEvent.Description}"/>
+            </StackPanel>
+            <Button Grid.Row="1" 
+                    Grid.Column="0" 
+                    Content="Set as Done"
+                    Command="{Binding SetSchaduleEventAsDoneCommand}"/>
+            <Button Grid.Row="1" 
+                    Grid.Column="1" 
+                    Content="Delete"
+                    Command="{Binding DeleteSchaduleEventCommand}"/>
         </Grid>
     </DockPanel>
 </Window>

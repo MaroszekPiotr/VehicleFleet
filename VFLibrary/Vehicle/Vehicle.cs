@@ -20,6 +20,8 @@ namespace VFLibrary
         public bool IsActive { get; set; } = true;
         [Indexed]
         public uint DriverID { get; set; }
+        [Ignore]
+        public Driver Driver { get; set; }
 
         public Vehicle()
         {

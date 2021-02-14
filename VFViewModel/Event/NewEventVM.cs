@@ -11,7 +11,7 @@ using VFViewModel.Vehicles;
 
 namespace VFViewModel.Event
 {
-    public class NewEventVM : EventWindowHelper
+    public class NewEventVM : NewEventWindowHelper
     {
         #region commands
         public NewEventCommand NewEventCommand { get; set; }

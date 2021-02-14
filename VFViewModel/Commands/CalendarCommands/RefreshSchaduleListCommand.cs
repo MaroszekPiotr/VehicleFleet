@@ -8,13 +8,14 @@ using VFViewModel.Calendar;
 
 namespace VFViewModel.Commands.CalendarCommands
 {
-    public class NewCalendarEventCommand : ICommand
+    public class RefreshSchaduleListCommand : ICommand
     {
-        public NewCalendarEventsVM CalendarEventsVM { get; set; }
+        private SchaduleEventsVM SchaduleEventsVM { get; set; }
         public event EventHandler CanExecuteChanged;
-        public NewCalendarEventCommand(NewCalendarEventsVM calendarEventsVM)
+
+        public RefreshSchaduleListCommand(SchaduleEventsVM schaduleEventsVM)
         {
-            CalendarEventsVM = calendarEventsVM;              
+            SchaduleEventsVM = schaduleEventsVM;
         }
 
         public bool CanExecute(object parameter)
@@ -24,7 +25,7 @@ namespace VFViewModel.Commands.CalendarCommands
 
         public void Execute(object parameter)
         {
-            CalendarEventsVM.CreateCalendarEvent();
+            SchaduleEventsVM.GetSchaduleEvents(false);
         }
     }
 }
