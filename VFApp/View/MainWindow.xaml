@@ -22,7 +22,8 @@
                         Click="OpenVehicleWindowClick"/>
                 <Separator/>
                 <Button Content="Vehicle Hisory"
-                        Margin="20,0,20,0"/>
+                        Margin="20,0,20,0" 
+                        Click="VehicleEventsWindow"/>
                 <Separator/>
                 <Button Content="Exit"
                         Margin="20, 0 ,20,0"

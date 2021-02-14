@@ -29,14 +29,18 @@ namespace VFViewModel.Calendar
         }
         public void CreateCalendarEvent()
         {
-            CalendarEvent calendarEvent = new CalendarEvent()
+            if (this.VehiclesVM.SelectedVehicle.Vin != null)
             {
-                EventTime = this.EventTime,
-                Description = this.Description,
-                Vin = this.VehiclesVM.SelectedVehicle.Vin,
-                DriverId = this.VehiclesVM.SelectedVehicle.DriverID,
-            };
-            DatabaseHelper.Insert<CalendarEvent>(calendarEvent);
+                CalendarEvent calendarEvent = new CalendarEvent()
+                {
+                    EventTime = this.EventTime,
+                    Description = this.Description,
+                    Vin = this.VehiclesVM.SelectedVehicle.Vin,
+                    DriverId = this.VehiclesVM.SelectedVehicle.DriverID,
+                };
+                DatabaseHelper.Insert<CalendarEvent>(calendarEvent);
+            }
+            
         }
     }
 }

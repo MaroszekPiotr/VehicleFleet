@@ -42,14 +42,18 @@ namespace VFViewModel.Calendar
 
         public void GetSchaduleEvents(bool isDone)
         {
-            var schaduleEvents = DatabaseHelper.Read<CalendarEvent>().Where(schaduleEvent => schaduleEvent.IsDone == isDone);
-            SchaduleEvents.Clear();
-            foreach (var schaduleEvent in schaduleEvents)
+            var schaduleEvents = DatabaseHelper.Read<CalendarEvent>().Where(schaduleEvent => schaduleEvent.IsDone == isDone).OrderBy(schaduleEvent => schaduleEvent.EventTime);
+            if (schaduleEvents != null)
             {
-                schaduleEvent.Driver= ReadDriver(schaduleEvent.DriverId);
-                schaduleEvent.Vehicle = ReadVehicle(schaduleEvent.Vin);
-                SchaduleEvents.Add(schaduleEvent);
+                SchaduleEvents.Clear();
+                foreach (var schaduleEvent in schaduleEvents)
+                {
+                    schaduleEvent.Driver = ReadDriver(schaduleEvent.DriverId);
+                    schaduleEvent.Vehicle = ReadVehicle(schaduleEvent.Vin);
+                    SchaduleEvents.Add(schaduleEvent);
+                }
             }
+            
         }
 
         public void SetSelectedEventAsDone()

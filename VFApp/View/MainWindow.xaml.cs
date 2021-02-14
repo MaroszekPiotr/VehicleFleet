@@ -68,5 +68,11 @@ namespace VFApp.View
             NewEventWindow vehicleWindow = new NewEventWindow();
             vehicleWindow.ShowDialog();
         }
+
+        private void VehicleEventsWindow(object sender, RoutedEventArgs e)
+        {
+            VehicleEventsWindow vehicleEventsWindow = new VehicleEventsWindow();
+            vehicleEventsWindow.ShowDialog();
+        }
     }
 }
