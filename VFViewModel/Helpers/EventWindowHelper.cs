@@ -14,6 +14,6 @@ namespace VFViewModel.Helpers
         public DriversVM DriversVM { get; set; }
         public VehiclesVM VehiclesVM { get; set; }
         public DateTime EventTime { get; set; }
-        public string Decription { get; set; }
+        public string Description { get; set; }
     }
 }

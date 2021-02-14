@@ -18,7 +18,7 @@ namespace VFLibrary.CalendarEvent
         public uint DriverId { get; set; }
 
         public DateTime EventTime { get; set; }
-        public string Decription { get; set; }
+        public string Description { get; set; }
         public bool IsDone { get; set; } = false;
     }
 }

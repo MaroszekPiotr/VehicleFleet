@@ -1,42 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using VFLibrary;
-using VFLibrary.CalendarEvent;
-using VFViewModel.Commands.CalendarCommands;
+using VFLibrary.VehicleEvent;
+using VFViewModel.Commands.EventCommand;
 using VFViewModel.Drivers;
 using VFViewModel.Helpers;
 using VFViewModel.Vehicles;
 
-namespace VFViewModel.Calendar
+namespace VFViewModel.Event
 {
-    public class CalendarEventsVM : EventWindowHelper
+    public class NewEventVM : EventWindowHelper
     {
-        #region command
-        public NewCalendarEventCommand NewCalendarEventCommand { get; set; }
+        #region commands
+        public NewEventCommand NewEventCommand { get; set; }
         #endregion
-
-        public CalendarEventsVM()
+        public NewEventVM()
         {
-            NewCalendarEventCommand = new NewCalendarEventCommand(this);
+            NewEventCommand = new NewEventCommand(this);
             VehiclesVM = new VehiclesVM();
             DriversVM = new DriversVM();
             EventTime = DateTime.Today;
         }
-        public void CreateCalendarEvent()
+        public void CreateEvent()
         {
-            CalendarEvent calendarEvent = new CalendarEvent()
+            VehicleHistory vehicleHistoryEvent = new VehicleHistory()
             {
                 EventTime = this.EventTime,
                 Description = this.Description,
                 Vin = this.VehiclesVM.SelectedVehicle.Vin,
                 DriverId = this.VehiclesVM.SelectedVehicle.DriverID,
             };
-            DatabaseHelper.Insert<CalendarEvent>(calendarEvent);
+            DatabaseHelper.Insert<VehicleHistory>(vehicleHistoryEvent);
         }
     }
 }

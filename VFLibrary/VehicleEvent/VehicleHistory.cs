@@ -17,5 +17,7 @@ namespace VFLibrary.VehicleEvent
         public string Description { get; set; }
         public DateTime EventTime { get; set; }
         public int VehicleKilometersValue { get; set; }
+        [Indexed]
+        public uint DriverId { get; set; }
     }
 }
