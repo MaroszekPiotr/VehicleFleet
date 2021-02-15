@@ -73,7 +73,7 @@ namespace VFViewModel.Vehicles
 
         public void GetVehicleList(bool isActiveValue)
         {
-            var vehicles = DatabaseHelper.Read<Vehicle>().Where(vehicle=>vehicle.IsActive==isActiveValue);
+            var vehicles = DatabaseHelper.Read<Vehicle>().Where(vehicle=>vehicle.IsActive==isActiveValue).OrderBy(vehice=>vehice.VehicleDescription).ThenBy(vehicle=>vehicle.VehiclePlate).ThenBy(vehicle=>vehicle.Vin);
 
             if (vehicles != null)
             {

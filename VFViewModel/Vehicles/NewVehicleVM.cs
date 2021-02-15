@@ -56,18 +56,22 @@ namespace VFViewModel.Vehicles
 
         public void CreateNewVehicle()
         {
-            Vehicle vehicle = new Vehicle()
+            if (this.Vin!= null)
             {
-                Vin = this.Vin,
-                VehiclePlate = this.VehiclePlate,
-                VehicleDescription = this.VehicleDescription,
-                PurchaseDate = this.purchaseDate,
-                InitialKilometersValue = this.InitialKilometersValue,
-                DriverID = this.selectedDriver.Id,
-                IsActive = true,
+                Vehicle vehicle = new Vehicle()
+                {
+                    Vin = this.Vin,
+                    VehiclePlate = this.VehiclePlate,
+                    VehicleDescription = this.VehicleDescription,
+                    PurchaseDate = this.purchaseDate,
+                    InitialKilometersValue = this.InitialKilometersValue,
+                    DriverID = this.selectedDriver.Id,
+                    IsActive = true,
 
-            };
-            DatabaseHelper.Insert<Vehicle>(vehicle);
+                };
+                DatabaseHelper.Insert<Vehicle>(vehicle);
+            }
+            
         }
         private void OnPropertyChanged(string propertyName)
         {

@@ -44,7 +44,7 @@ namespace VFViewModel.Drivers
 
         public void GetDriversList(bool isActiveValue)
         {
-            var drivers = DatabaseHelper.Read<Driver>().Where(driver=>driver.IsActive==isActiveValue);
+            var drivers = DatabaseHelper.Read<Driver>().Where(driver=>driver.IsActive==isActiveValue).OrderBy(driver=>driver.LastName).ThenBy(driver=>driver.FirstName);
             Drivers.Clear();
             foreach (var driver in drivers)
             {

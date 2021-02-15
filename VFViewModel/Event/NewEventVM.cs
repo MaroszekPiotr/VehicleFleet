@@ -26,15 +26,19 @@ namespace VFViewModel.Event
         }
         public void CreateEvent()
         {
-            VehicleHistory vehicleHistoryEvent = new VehicleHistory()
+            if (VehiclesVM.SelectedVehicle!=null)
             {
-                EventTime = this.EventTime,
-                Description = this.Description,
-                Vin = this.VehiclesVM.SelectedVehicle.Vin,
-                DriverId = this.VehiclesVM.SelectedVehicle.DriverID,
-                VehicleKilometersValue = this.VehicleKilometersValue
-            };
-            DatabaseHelper.Insert<VehicleHistory>(vehicleHistoryEvent);
+                VehicleHistory vehicleHistoryEvent = new VehicleHistory()
+                {
+                    EventTime = this.EventTime,
+                    Description = this.Description,
+                    Vin = this.VehiclesVM.SelectedVehicle.Vin,
+                    DriverId = this.VehiclesVM.SelectedVehicle.DriverID,
+                    VehicleKilometersValue = this.VehicleKilometersValue
+                };
+                DatabaseHelper.Insert<VehicleHistory>(vehicleHistoryEvent);
+            }
+            
         }
     }
 }

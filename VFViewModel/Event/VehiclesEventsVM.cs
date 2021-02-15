@@ -33,7 +33,7 @@ namespace VFViewModel.Event
         }
         public void GetVehicleEvents()
         {
-            var vehicleEvents = DatabaseHelper.Read<VehicleHistory>().OrderBy(vehicleEvent=>vehicleEvent.EventTime);//.Where(vehicle=>vehicle.Vin==selectedVehicleHistory.Vin).ToList();
+            var vehicleEvents = DatabaseHelper.Read<VehicleHistory>().OrderBy(vehicleEvent=>vehicleEvent.EventTime);
             VehiclesEvents.Clear();
             foreach(var vehicleEvent in vehicleEvents)
             {

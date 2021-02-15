@@ -29,7 +29,7 @@ namespace VFViewModel.Calendar
         }
         public void CreateCalendarEvent()
         {
-            if (this.VehiclesVM.SelectedVehicle.Vin != null)
+            if (this.VehiclesVM.SelectedVehicle != null)
             {
                 CalendarEvent calendarEvent = new CalendarEvent()
                 {
