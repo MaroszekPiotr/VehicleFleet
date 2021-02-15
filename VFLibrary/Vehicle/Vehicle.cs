@@ -30,7 +30,7 @@ namespace VFLibrary
         /// <summary>
         /// set purchase date only if you need it
         /// </summary>
-        public DateTime PurchaseDate{ get; set; }
+        public DateTime PurchaseDate { get; set; }
         /// <summary>
         /// set InitialKilometersValue only if you need it
         /// </summary>
@@ -64,7 +64,7 @@ namespace VFLibrary
         {
             VehiclePlate = vehiclePlate;
         }
-        public Vehicle(string vin, string vehiclePlate, string vehicleDescription) : this(vin,vehiclePlate)
+        public Vehicle(string vin, string vehiclePlate, string vehicleDescription) : this(vin, vehiclePlate)
         {
             VehicleDescription = vehicleDescription;
         }
@@ -73,12 +73,15 @@ namespace VFLibrary
             Driver = driver;
         }
         #endregion
+        #region toString
+        public override string ToString() => $"Vehicle {VehicleDescription}:\nVIN: {Vin},\nPlate: {VehiclePlate};";
+        #endregion
         #region equals
         public bool Equals(Vehicle other)
         {
             if (other == null) return false;
             if (object.ReferenceEquals(this, other)) return true;
-            return (this.Vin == other.Vin && this.VehiclePlate == other.VehiclePlate&&this.VehicleDescription==other.VehicleDescription&&this.PurchaseDate==other.PurchaseDate&&this.InitialKilometersValue==other.InitialKilometersValue&&this.IsActive==other.IsActive&&this.Driver==other.Driver);
+            return (this.Vin == other.Vin && this.VehiclePlate == other.VehiclePlate && this.VehicleDescription == other.VehicleDescription && this.PurchaseDate == other.PurchaseDate && this.InitialKilometersValue == other.InitialKilometersValue && this.IsActive == other.IsActive && this.Driver == other.Driver);
         }
         public override bool Equals(object obj)
         {
@@ -91,7 +94,7 @@ namespace VFLibrary
             if (v1 is null) return false;
             return v1.Equals(v2);
         }
-        public override int GetHashCode() => (this.Vin, this.VehiclePlate, this.VehicleDescription, this.PurchaseDate, this.InitialKilometersValue,this.IsActive, this.Driver).GetHashCode();
+        public override int GetHashCode() => (this.Vin, this.VehiclePlate, this.VehicleDescription, this.PurchaseDate, this.InitialKilometersValue, this.IsActive, this.Driver).GetHashCode();
         #endregion
         #region operators
         public static bool operator ==(Vehicle v1, Vehicle v2) => v1.Equals(v2);

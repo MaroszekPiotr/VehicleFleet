@@ -73,6 +73,9 @@ namespace VFLibrary
             Nationality = nationality;
         }
         #endregion
+        #region toString
+        public override string ToString() => $"Driver: {FirstName} {LastName},\nNationality: {Nationality},\nPESEL: {Pesel}\nAdditional ID: {AdditionalId}\nActive driver: {IsActive};";
+        #endregion
         #region equals
         public bool Equals(Driver other)
         {
