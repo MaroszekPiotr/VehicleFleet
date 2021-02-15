@@ -17,7 +17,6 @@ namespace VFViewModel.Drivers
         public string Pesel { get; set; }
         public string AdditionalId { get; set; }
         public NewDriverCommand NewDriverCommand { get; set; }
-        //public DriversVM DriversVM { get; set; }
 
         public NewDriverVM()
         {
@@ -26,7 +25,8 @@ namespace VFViewModel.Drivers
 
         public void CreateNewDriver()
         {
-            Driver driver = new Driver() {
+            Driver driver = new Driver()
+            {
                 FirstName = this.FirstName,
                 LastName = this.LastName,
                 Pesel = this.Pesel,
@@ -34,8 +34,7 @@ namespace VFViewModel.Drivers
                 Nationality = this.Nationality,
                 IsActive = true,
             };
-            DatabaseHelper.Insert<Driver>(driver);
-
+            DatabaseHelper.Insert<Driver>(driver);    
         }
     }
 }
