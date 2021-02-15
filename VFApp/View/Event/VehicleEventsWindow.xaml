@@ -17,6 +17,7 @@
                         Margin="10,0,10,0"
                         Click="ExitClick"/>
                 <Button Content="Filter by selected Vehicle"
+                        Command="{Binding VehicleEventFilterCommand}"
                         Margin="10,0,10,0"/>
                 <Separator/>
             </ToolBar>
@@ -47,7 +48,20 @@
             </ListView.ItemTemplate>
         </ListView>
         <Grid>
-            
+            <StackPanel Margin="10,10,10,10">
+                <TextBlock Text="Date:"/>
+                <TextBlock Text="{Binding SelectedVehicleHistory.EventTime,StringFormat=dd/MM/yyyy}"/>
+                <TextBlock Text="Driver:"/>
+                <DockPanel>
+                    <TextBlock Text="{Binding SelectedVehicleHistory.Driver.FirstName}"/>
+                    <TextBlock Text=" "/>
+                    <TextBlock Text="{Binding SelectedVehicleHistory.Driver.LastName}"/>
+                </DockPanel>
+                <TextBlock Text="Kilometers Value:"/>
+                <TextBlock Text="{Binding SelectedVehicleHistory.VehicleKilometersValue}"/>
+                <TextBlock Text="Description:"/>
+                <TextBlock Text="{Binding SelectedVehicleHistory.Description}"/>
+            </StackPanel>
         </Grid>
     </DockPanel>
 </Window>
