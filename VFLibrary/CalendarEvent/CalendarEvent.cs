@@ -43,7 +43,7 @@ namespace VFLibrary.CalendarEvent
         /// </summary>
         public DateTime EventTime { get; set; }
         /// <summary>
-        /// Description of event, for example: pay for vehicle insurance .
+        /// Description of event, for example: pay for vehicle insurance.
         /// </summary>
         public string Description { get; set; }
         /// <summary>
