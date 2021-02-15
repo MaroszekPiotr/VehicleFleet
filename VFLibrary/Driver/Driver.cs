@@ -97,10 +97,6 @@ namespace VFLibrary
         }
         public override int GetHashCode() => (FirstName, LastName, Nationality, AdditionalId, Pesel).GetHashCode();
         #endregion
-        #region operators
-        public static bool operator ==(Driver d1, Driver d2) => Equals(d1, d2);
-        public static bool operator !=(Driver d1, Driver d2) => !(Equals(d1, d2));
-        #endregion
         #region methods
         /// <summary>
         /// Method for adding pesel number for drivers with Polish nationality

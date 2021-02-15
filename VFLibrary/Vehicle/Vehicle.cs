@@ -96,9 +96,5 @@ namespace VFLibrary
         }
         public override int GetHashCode() => (this.Vin, this.VehiclePlate, this.VehicleDescription, this.PurchaseDate, this.InitialKilometersValue, this.IsActive, this.Driver).GetHashCode();
         #endregion
-        #region operators
-        public static bool operator ==(Vehicle v1, Vehicle v2) => v1.Equals(v2);
-        public static bool operator !=(Vehicle v1, Vehicle v2) => !(v1.Equals(v2));
-        #endregion
     }
 }

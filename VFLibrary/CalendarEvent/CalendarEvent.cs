@@ -11,7 +11,7 @@ namespace VFLibrary.CalendarEvent
     /// Class dedicated for schaduled event of vehicle. It's kind of "to do" or reminder class of objects.
     /// </summary>
     [Table("VehicleCalendarEvents")]
-    public class CalendarEvent : IEquatable<CalendarEvent>, IComparable
+    public class CalendarEvent : IEquatable<CalendarEvent>, IComparable<CalendarEvent>
     {
         /// <summary>
         /// Property Id is dedicated for sql usage only for identity of CalendarEvent Object.
@@ -76,7 +76,7 @@ namespace VFLibrary.CalendarEvent
 
         #endregion
         #region toString
-        public override string ToString() => $"Event: {Description}:\nDate: {EventTime},Vehicle: {Vehicle.VehicleDescription};";
+        public override string ToString() => $"Event: {Description}:\nDate: {EventTime:d},Vehicle: {Vehicle.VehicleDescription};";
         #endregion
         #region equals
         public bool Equals(CalendarEvent other)
@@ -98,10 +98,12 @@ namespace VFLibrary.CalendarEvent
         }
         public override int GetHashCode() => (this.Vehicle, this.Driver, this.EventTime, this.Description, this.IsDone).GetHashCode();
         #endregion
-
-        public int CompareTo(object obj)
+        #region compare
+        public int CompareTo(CalendarEvent other)
         {
-            throw new NotImplementedException();
+            if (this.Equals(other)) return 0;
+            return this.EventTime.CompareTo(other.EventTime);
         }
+        #endregion
     }
 }
